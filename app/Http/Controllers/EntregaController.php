@@ -13,7 +13,7 @@ class EntregaController extends Controller
      */
     public function index()
     {
-        $entregas = App\Models\Entrega::all();
+        $entregas = Entrega::all();
         return view('entrega.list', compact('entregas'));
     }
 
