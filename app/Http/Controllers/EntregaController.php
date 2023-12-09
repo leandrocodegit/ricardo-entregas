@@ -11,6 +11,8 @@ class EntregaController extends Controller
     /**
      * Display a listing of the resource.
      */
+    //Alteado nome da model
+    
     public function index()
     {
         $entregas = Entrega::all();
