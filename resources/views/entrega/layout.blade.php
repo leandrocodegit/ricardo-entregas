@@ -40,6 +40,11 @@
     </footer>
 
     <style>
+
+        a{
+            text-decoration: none;  
+            
+        }
         .box-container-menu {
     display: flex;
     flex-direction: row;
@@ -100,7 +105,13 @@
 p {
     font-weight: 200;
     margin: 3px;
-    font-size: 14px;
+    font-size: 18px;
+}
+
+@media (max-width: 600px) {
+    a{
+        width: 100%;
+    } 
 }
     </style>
 </body>

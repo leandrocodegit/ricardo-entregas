@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Entrega;
+use Illuminate\Support\Carbon;
 
 class EntregaController extends Controller
 {
@@ -16,12 +17,17 @@ class EntregaController extends Controller
         return view('entrega.list', compact('entregas'));
     }
 
+ 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('entrega.create');
+        $today = Carbon::today();
+
+        // Obter todas as entregas de hoje
+        $entregas = Entrega::whereDate('created_at', $today)->get();
+        return view('entrega.create', compact('entregas'));
     }
 
     public function list()
@@ -69,8 +75,12 @@ class EntregaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $host, string $id)
     {
-        //
+        $entrega = Entrega::findOrFail($id);
+        $entrega->delete();
+    
+
+        return redirect('entrega/' .$host)->with('success', 'Entrega excluída com sucesso!');
     }
 }

@@ -23,7 +23,7 @@
             <td>{{ $entrega->quantidade }}</td> 
             <td>{{ $entrega->created_at }}</td>
             <td>
-            <form action="{{ url('/entrega/' . $entrega->id) }}" method="post">
+            <form action="{{ url('/entrega/list/' . $entrega->id) }}" method="post">
                     @csrf
                     @method('delete')
                     <button type="submit">

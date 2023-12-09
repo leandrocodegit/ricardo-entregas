@@ -16,7 +16,10 @@ use App\Http\Controllers\EntregaController;
 
 // Rota para exibir o formulário
 Route::get('/entrega/create', [EntregaController::class, 'create']);
+Route::get('/entrega/list', [EntregaController::class, 'index']);
 Route::get('/', [EntregaController::class, 'index']);
 
 // Rota para processar o formulário
 Route::post('/entrega/store', [EntregaController::class, 'store']);
+Route::delete('/entrega/{host}/{id}', [EntregaController::class, 'destroy']);
+
